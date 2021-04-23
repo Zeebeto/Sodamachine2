@@ -6,7 +6,7 @@ namespace Sodamachine2
     public class Sodamachine
     {
         public List<Soda> Stock = new List<Soda>();
-        private bool _machineOn;
+        public bool _machineOn;
         public bool AddCredit;
         public bool BuySoda;
 
@@ -30,10 +30,10 @@ namespace Sodamachine2
             Console.WriteLine("Sodamachine v2.0.0.1a\n");
         }
 
-        public bool GetStatus()
-        {
-            return _machineOn;
-        }
+        // public bool GetStatus()
+        // {
+        //     return _machineOn;
+        // }
         public void HandleCmd(string input, Sodamachine sm, Cashbox cash)
         {
             switch (input)
@@ -56,6 +56,9 @@ namespace Sodamachine2
                     break;
                 case "s":
                     showStock(Stock);
+                    break;
+                case "c":
+                    Console.WriteLine($"you have {cash.getCred()} credit");
                     break;
                 default:
                     Console.WriteLine("Invalid command");
@@ -80,6 +83,7 @@ namespace Sodamachine2
                               "     a number 1 - 5 depending on what soda you would like");
             Console.WriteLine("R - return credit");
             Console.WriteLine("S - show current stock");
+            Console.WriteLine("C - shows you tour credit");
             Console.WriteLine("Q - quit");
         }
 

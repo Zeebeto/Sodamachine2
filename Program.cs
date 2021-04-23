@@ -10,13 +10,19 @@ namespace Sodamachine2
             var cash = new Cashbox(0);
             sm.StartMachine();
             sm.Setup();
-            while (sm.GetStatus())
+            while (sm._machineOn)
             {
                 var input = Console.ReadLine();
                 if (input != null) sm.HandleCmd(input.ToLower(), sm, cash);
                 if (sm.AddCredit) cash.addCredit(sm);
                 if (sm.BuySoda) sm.HandleSoda(sm, cash);
             }
+            
         }
     }
 }
+/* fix negative credit bug - fixed
+ * add functionalty to buy several sodas at once
+ * bulk discount?
+ * admin access to restock
+ */

@@ -44,9 +44,9 @@ namespace Sodamachine2
             Console.WriteLine($"you have {_credit} credit\n");
         }
 
-        public void purchase(int price, string item)
+        public void purchase(int price, string item, int amount)
         {
-            Console.WriteLine($"you purchased {item} for {price} credits");
+            Console.WriteLine($"you purchased {amount} {item} for {price} credits");
             _credit = _credit - price;
             Console.WriteLine($"your credit is: {_credit}");
         }
